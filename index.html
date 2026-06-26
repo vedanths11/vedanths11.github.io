@@ -46,7 +46,6 @@
     z-index: 0;
   }
 
-  /* Subtle light orbs */
   .orb {
     position: fixed;
     border-radius: 50%;
@@ -58,7 +57,6 @@
   .orb-1 { width: 600px; height: 600px; background: #90caf9; top: -200px; right: -100px; }
   .orb-2 { width: 400px; height: 400px; background: #ffccbc; bottom: 20%; left: -150px; }
 
-  /* Nav */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -98,7 +96,6 @@
 
   .nav-links a:hover { color: var(--accent); }
 
-  /* Sections */
   section {
     position: relative;
     z-index: 1;
@@ -107,7 +104,6 @@
     padding: 5rem 2rem;
   }
 
-  /* Hero */
   #hero {
     min-height: 100vh;
     display: flex;
@@ -115,25 +111,6 @@
     justify-content: center;
     padding-top: 52px;
     max-width: 1000px;
-  }
-
-  .hero-label {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .hero-label::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 1px;
-    background: var(--accent);
   }
 
   h1 {
@@ -220,7 +197,6 @@
     margin-top: 0.2rem;
   }
 
-  /* Section headers */
   .section-header {
     display: flex;
     align-items: center;
@@ -457,7 +433,7 @@
 
   .project-card:hover .click-hint { opacity: 0.7; }
 
-  /* Skills — exp-card format */
+  /* Skills */
   .skill-card {
     border: 1px solid var(--border);
     background: var(--surface);
@@ -514,7 +490,23 @@
     border-radius: 50%;
   }
 
-  /* Footer */
+  /* Coursework */
+  .coursework-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .course-tag {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--surface2);
+  }
+
   footer {
     position: relative;
     z-index: 1;
@@ -544,7 +536,6 @@
 
   .footer-links a:hover { color: var(--accent); }
 
-  /* Animations */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -561,14 +552,11 @@
   .fade-up:nth-child(4) { animation-delay: 0.5s; }
   .fade-up:nth-child(5) { animation-delay: 0.65s; }
 
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); }
 
-  /* ============================================================
-     MODAL
-  ============================================================ */
+  /* Modal */
   .modal-overlay {
     position: fixed;
     inset: 0;
@@ -639,9 +627,7 @@
 
   .modal-close:hover { color: var(--accent2); }
 
-  .modal-body {
-    padding: 2rem 1.5rem;
-  }
+  .modal-body { padding: 2rem 1.5rem; }
 
   .modal-title {
     font-family: 'Syne', sans-serif;
@@ -680,10 +666,7 @@
     opacity: 0.8;
   }
 
-  .modal-bullets {
-    list-style: none;
-    margin-bottom: 1rem;
-  }
+  .modal-bullets { list-style: none; margin-bottom: 1rem; }
 
   .modal-bullets li {
     position: relative;
@@ -733,18 +716,38 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Image slots */
   .modal-images {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     margin-top: 1rem;
+  }
+
+  .modal-image-figure {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .modal-image-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--border);
+  }
+
+  .modal-image-caption {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
   }
 
   .modal-image-slot {
     border: 1.5px dashed var(--border);
     background: var(--surface2);
-    aspect-ratio: 16/9;
+    height: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -754,27 +757,10 @@
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
   }
 
-  .modal-image-slot img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-  }
-
-  .modal-image-slot .slot-icon {
-    font-size: 1.5rem;
-    opacity: 0.3;
-  }
-
-  .modal-image-slot .slot-label {
-    opacity: 0.5;
-  }
+  .modal-image-slot .slot-icon { font-size: 1.5rem; opacity: 0.3; }
+  .modal-image-slot .slot-label { opacity: 0.5; }
 
   .modal-add-note {
     margin-top: 1rem;
@@ -784,6 +770,23 @@
     letter-spacing: 0.05em;
     font-style: italic;
   }
+
+  .modal-github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--accent-mid);
+    padding: 0.4rem 0.9rem;
+    transition: background 0.2s;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .modal-github-btn:hover { background: var(--accent-light); }
 </style>
 </head>
 <body>
@@ -809,7 +812,7 @@
   </h1>
   <div class="hero-subtitle fade-up">GNC &amp; ADCS · Python · MATLAB/Simulink</div>
   <p class="hero-desc fade-up">
-    GNC & ADCS engineer. I build spacecraft control systems — from hardware-in-the-loop CubeSat simulators and formal verification of hybrid-mode controllers to 6-DOF attitude dynamics in Python.
+    GNC & ADCS engineer. I've built spacecraft control systems — software-in-the-loop CubeSat simulators in Simulink and MATLAB, formal verification of hybrid-mode controllers, and 6-DOF attitude dynamics in Python.
   </p>
   <div class="hero-status fade-up">
     <span class="dot"></span>
@@ -819,14 +822,14 @@
   <div class="hero-metrics fade-up">
     <div>
       <div class="metric-val">Aerospace <span>Engineering</span></div>
-      <div class="metric-label">Degree</div>
+      <div class="metric-label">Degree · Minor in Mathematics</div>
     </div>
     <div>
       <div class="metric-val">University of Illinois <span>Urbana-Champaign</span></div>
       <div class="metric-label">Institution</div>
     </div>
     <div>
-      <div class="metric-val">Class of <span>2027</span></div>
+      <div class="metric-val">May <span>2027</span></div>
       <div class="metric-label">Expected Graduation</div>
     </div>
     <div>
@@ -865,7 +868,7 @@
       <div class="exp-date">Jan 2025 – Present</div>
     </div>
     <ul class="exp-bullets">
-      <li>Built a MATLAB/Simulink <span class="highlight">hardware-in-the-loop FlatSat simulator</span> for MonARCH CubeSat — Cowell propagation, 6-DOF dynamics, 4 pointing modes</li>
+      <li>Built a MATLAB/Simulink <span class="highlight">software-in-the-loop FlatSat simulator</span> for MonARCH CubeSat — Cowell propagation, 6-DOF dynamics, 4 pointing modes</li>
       <li>FreeFlyer attitude simulation redesign → <span class="highlight">+10% modeled solar array power</span> under slew maneuvers</li>
       <li>ADCS trade study (reaction wheels vs. magnetorquers) → <span class="highlight">25 arcsec pointing</span> requirement met for electric thruster characterization</li>
     </ul>
@@ -902,6 +905,22 @@
       <li>Reduced ultracapacitor ESR by <span class="highlight">75%</span> vs. baseline — validated viability for space/extreme-temp applications</li>
     </ul>
   </div>
+
+  <div class="exp-card" onclick="openModal('exp-cso')">
+    <span class="exp-card-click-hint">View details →</span>
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">Chief Safety Officer</div>
+        <div class="exp-org">Liquid Rocketry at Illinois — Urbana, IL</div>
+      </div>
+      <div class="exp-date">Aug 2024 – Jan 2026</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Led safety reviews for <span class="highlight">15+ LOx-IPA subsystems</span>, identifying failure modes including valve freeze-up and over-pressure risks during hot-fire operations</li>
+      <li>Established redundant safety systems following <span class="highlight">industry-standard certification requirements</span> to mitigate operational risks</li>
+      <li>Reduced unsafe conditions during cold-flow testing by enforcing pressure-system verification and LOx materials compliance</li>
+    </ul>
+  </div>
 </section>
 
 <!-- Projects -->
@@ -932,9 +951,9 @@
     </div>
 
     <div class="project-card" data-num="02" onclick="openModal('proj-monarch')">
-      <span class="project-tag">HIL · MATLAB · Active</span>
-      <div class="project-name">MonARCH CubeSat FlatSat HIL Simulator</div>
-      <p class="project-desc">Hardware-in-the-loop FlatSat simulator for the MonARCH CubeSat mission. Cowell propagation, 4 pointing modes, configurable Keplerian parameters.</p>
+      <span class="project-tag">SIL · MATLAB · Active</span>
+      <div class="project-name">MonARCH CubeSat FlatSat Simulator</div>
+      <p class="project-desc">Software-in-the-loop FlatSat simulator for the MonARCH CubeSat mission. Cowell propagation, 4 pointing modes, configurable Keplerian parameters.</p>
       <div class="project-stats">
         <span class="pstat">+10% solar array power</span>
         <span class="pstat">25 arcsec pointing</span>
@@ -981,6 +1000,36 @@
       </div>
       <div class="click-hint">Click to expand →</div>
     </div>
+
+    <div class="project-card" data-num="05" onclick="openModal('proj-lox')">
+      <span class="project-tag">Propulsion · MATLAB · Complete</span>
+      <div class="project-name">LOx-IPA Test Stand Simulink Model</div>
+      <p class="project-desc">Fluid dynamics model of a Liquid Oxygen–Isopropyl Alcohol rocket test stand, validated against cold-flow datasets to support hot-fire prediction.</p>
+      <div class="project-stats">
+        <span class="pstat">7% accuracy vs. measured</span>
+        <span class="pstat">3 cold-flow datasets</span>
+      </div>
+      <div class="tags">
+        <span class="tag">MATLAB/Simulink</span>
+        <span class="tag">LOx-IPA</span>
+        <span class="tag">Fluid Dynamics</span>
+        <span class="tag">Model Validation</span>
+      </div>
+      <div class="click-hint">Click to expand →</div>
+    </div>
+
+    <div class="project-card" data-num="06" onclick="openModal('proj-nbody')">
+      <span class="project-tag">Astrodynamics · Python · Complete</span>
+      <div class="project-name">Solar System N-Body Problem Simulation</div>
+      <p class="project-desc">Numerical simulation of gravitational N-body dynamics for solar system bodies using Python, modeling multi-body orbital interactions over time.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">N-Body</span>
+        <span class="tag">Astrodynamics</span>
+        <span class="tag">Numerical Integration</span>
+      </div>
+      <div class="click-hint">Click to expand →</div>
+    </div>
   </div>
 </section>
 
@@ -997,6 +1046,7 @@
       <div class="skill-card-label">GNC & ADCS</div>
     </div>
     <div class="skill-items-row">
+      <div class="skill-item">Attitude Determination & Control (ADCS)</div>
       <div class="skill-item">6-DOF Dynamics</div>
       <div class="skill-item">Quaternion Kinematics</div>
       <div class="skill-item">PID Control</div>
@@ -1017,7 +1067,7 @@
       <div class="skill-item">FreeFlyer</div>
       <div class="skill-item">RK4 Numerical Integration</div>
       <div class="skill-item">Monte Carlo Simulation</div>
-      <div class="skill-item">Hardware-in-the-Loop (HIL)</div>
+      <div class="skill-item">Software-in-the-Loop (SIL)</div>
       <div class="skill-item">Model Validation</div>
     </div>
   </div>
@@ -1043,6 +1093,7 @@
       <div class="skill-item">DAQ Systems (Arbin)</div>
       <div class="skill-item">DAQ Systems (Versastat)</div>
       <div class="skill-item">FMEA</div>
+      <div class="skill-item">LOx-IPA Propulsion Systems</div>
     </div>
   </div>
 
@@ -1057,38 +1108,45 @@
       <div class="skill-item">Kotlin</div>
     </div>
   </div>
+
+  <div class="skill-card">
+    <div class="skill-card-header">
+      <div class="skill-card-label">Relevant Coursework</div>
+    </div>
+    <div class="coursework-row">
+      <span class="course-tag">Aerospace Controls</span>
+      <span class="course-tag">Spacecraft Attitude Control</span>
+      <span class="course-tag">Nanosatellite Design</span>
+      <span class="course-tag">Dynamics</span>
+      <span class="course-tag">Statistics</span>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <div>Vedanth Sampath · UIUC Aerospace Engineering · Class of 2027</div>
+  <div>Vedanth Sampath · UIUC Aerospace Engineering · May 2027 · US Citizen</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/vedanth-sampath/">LinkedIn</a>
     <a href="https://github.com/vedanths11">GitHub</a>
-    <a href="https://tinyurl.com/vedanths">Portfolio</a>
     <a href="mailto:vedanths411@gmail.com">Email</a>
   </div>
 </footer>
 
-<!-- ============================================================
-     MODAL OVERLAY
-============================================================ -->
+<!-- Modal -->
 <div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
   <div class="modal" id="modal-box">
     <div class="modal-top-bar">
       <span class="modal-type-tag" id="modal-type-tag"></span>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
-    <div class="modal-body" id="modal-body">
-      <!-- injected by JS -->
-    </div>
+    <div class="modal-body" id="modal-body"></div>
   </div>
 </div>
 
 <script>
-  // ─── Modal Data ───────────────────────────────────────────────
   const modals = {
     'exp-im': {
-      type: 'Experience',
+      type: 'Experience · Internship',
       title: 'Incoming GNC Intern',
       org: 'Intuitive Machines · Lanteris Space Systems — Palo Alto, CA',
       date: 'May – Aug 2026',
@@ -1096,11 +1154,6 @@
         'Joining the GNC team at Lanteris Space Systems, a subsidiary of Intuitive Machines, for Summer 2026.',
         'Role focused on guidance, navigation, and control for commercial lunar and space systems.',
       ],
-      images: [
-        { label: 'Add an image — e.g. company / team photo' },
-        { label: 'Add an image — e.g. mission diagram' },
-      ],
-      note: 'Role begins May 2026 — add images and details as the internship progresses.',
     },
     'exp-lassi': {
       type: 'Research · LASSI',
@@ -1108,16 +1161,16 @@
       org: 'Laboratory for Advanced Space Systems at Illinois (LASSI) — Urbana, IL',
       date: 'Jan 2025 – Present',
       bullets: [
-        'Built a MATLAB/Simulink hardware-in-the-loop FlatSat simulator for the MonARCH CubeSat — Cowell propagation, 6-DOF dynamics, 4 pointing modes.',
-        'FreeFlyer attitude simulation redesign → +10% modeled solar array power under slew maneuvers.',
-        'Conducted ADCS trade study (reaction wheels vs. magnetorquers) → 25 arcsec pointing requirement met for electric thruster characterization.',
+        'Built a MATLAB/Simulink hardware-in-the-loop FlatSat simulator for the MonARCH CubeSat using Cowell\'s method of propagation, modeling 6-DOF dynamics (attitude, angular rates, orbit state) across Earth nadir, sun, and velocity vector pointing modes with configurable Keplerian parameters, sensor noise, and bias.',
+        'Implemented hybrid mode transition logic in Simulink to compute error quaternions from target and estimated attitudes, outputting reaction wheel actuation torques across 4 pointing modes with entry/exit logic.',
+        'Built and validated a FreeFlyer-based attitude simulation that increased modeled solar array power by 10% by redesigning pointing logic under slew maneuvers.',
+        'Conducted an ADCS trade study comparing 3-axis reaction wheels and magnetorquers to select hardware meeting 25 arcsec pointing requirements for electric thruster characterization.',
       ],
       images: [
-        { label: 'Add an image — e.g. FlatSat hardware' },
-        { label: 'Add an image — e.g. Simulink model screenshot' },
-        { label: 'Add an image — e.g. pointing accuracy plot' },
+        { src: 'images/euler_time.png', label: 'Spacecraft Euler Angles over Time' },
+        { src: 'images/noise_analysis.png', label: 'Comparison of Attitude Error with/without Noise' },
+        { src: 'images/orbital_parameters.png', label: 'Spacecraft Orbital Parameters over Time' },
       ],
-      note: 'Replace the placeholders above with photos or diagrams from your lab work.',
     },
     'exp-verse': {
       type: 'Research · Formal Verification',
@@ -1130,10 +1183,9 @@
         'Integrated RK4 10-state spacecraft dynamics with disturbance torques and reaction wheel momentum dumping.',
       ],
       images: [
-        { label: 'Add an image — e.g. reachtube plot' },
-        { label: 'Add an image — e.g. mode-switching diagram' },
+        { src: 'images/energy_vs_time.png', label: 'Satellite Angular Velocity and Kinetic Energy Over Time' },
+        { src: 'images/omega_vs_time.png', label: 'Spacecraft Angular Velocity Components over Time' },
       ],
-      note: 'A great place to embed reachability plots or hybrid automata diagrams.',
     },
     'exp-tda': {
       type: 'Industry · Internship',
@@ -1145,69 +1197,83 @@
         'Built Python DAQ pipeline integrating Arbin + Versastat systems for automated multi-channel data collection.',
         'Reduced ultracapacitor ESR by 75% vs. baseline — validated viability for space and extreme-temperature applications.',
       ],
-      images: [
-        { label: 'Add an image — e.g. test rig setup' },
-        { label: 'Add an image — e.g. ESR comparison chart' },
+    },
+    'exp-cso': {
+      type: 'Leadership · Liquid Rocketry',
+      title: 'Chief Safety Officer',
+      org: 'Liquid Rocketry at Illinois — Urbana, IL',
+      date: 'Aug 2024 – Jan 2026',
+      bullets: [
+        'Led safety reviews for 15+ LOx-IPA subsystems and components, identifying failure modes including valve freeze-up and over-pressure risks during hot-fire operations.',
+        'Established redundant safety systems following industry-standard certification requirements to mitigate operational risks.',
+        'Reduced unsafe conditions during cold-flow testing by enforcing pressure-system verification and Liquid Oxygen materials compliance.',
       ],
-      note: 'Add cryogenic rig photos or data plots to bring this to life.',
     },
     'proj-gnc': {
       type: 'Project · GNC · Python',
       title: 'Spacecraft Attitude Control: GNC Algorithm Design & Simulation',
-      date: 'Active',
+      date: 'Aug 2025 – Present',
       desc: 'Nonlinear 6-DOF spacecraft attitude simulation with quaternion kinematics, rigid-body rotation, and reaction-wheel momentum coupling. Validated across 50 orbital scenarios with Monte Carlo dispersion analysis.',
+      bullets: [
+        'Built a nonlinear 6-DOF spacecraft attitude simulation in Python with rigid-body rotation, quaternion kinematics, and reaction-wheel momentum coupling.',
+        'Derived quaternion-based PID gains achieving 0.1° pointing accuracy with <100s settling time; validated across 50 orbital scenarios under gravity-gradient, SRP, atmospheric drag, and magnetic disturbance torques.',
+        'Performed Monte Carlo analysis on center-of-pressure offset and initial attitude uncertainty to characterize pointing stability margins under realistic dispersions.',
+      ],
       stats: ['0.1° pointing accuracy', '<100s settling time', '50 orbital scenarios'],
       tags: ['Python', '6-DOF', 'Quaternion PID', 'Monte Carlo'],
-      images: [
-        { label: 'Add an image — e.g. attitude trajectory plot' },
-        { label: 'Add an image — e.g. quaternion error convergence' },
-        { label: 'Add an image — e.g. Monte Carlo scatter' },
-      ],
-      note: 'Tip: embed plots directly from your Python outputs here.',
+      github: 'https://github.com/vedanths11/Python-ADCS',
     },
     'proj-monarch': {
-      type: 'Project · HIL · MATLAB',
-      title: 'MonARCH CubeSat FlatSat HIL Simulator',
-      date: 'Active',
-      desc: 'Hardware-in-the-loop FlatSat simulator for the MonARCH CubeSat mission. Implements Cowell propagation, 4 pointing modes (nadir, sun-pointing, inertial hold, slew), and configurable Keplerian orbit parameters. Interfaces live with physical ADCS hardware for closed-loop testing.',
+      type: 'Project · SIL · MATLAB',
+      title: 'MonARCH CubeSat FlatSat Simulator',
+      date: 'Jan 2025 – Present',
+      desc: 'Software-in-the-loop FlatSat simulator for the MonARCH CubeSat mission. Implements Cowell propagation, 4 pointing modes (nadir, sun-pointing, inertial hold, slew), and configurable Keplerian orbit parameters.',
       stats: ['+10% solar array power', '25 arcsec pointing'],
       tags: ['MATLAB/Simulink', 'FreeFlyer', 'CubeSat', 'ADCS'],
-      images: [
-        { label: 'Add an image — e.g. FlatSat bench photo' },
-        { label: 'Add an image — e.g. Simulink block diagram' },
-      ],
-      note: 'A Simulink block diagram screenshot or the physical FlatSat setup would work great here.',
     },
     'proj-fv': {
       type: 'Project · Formal Verification · Python',
       title: 'Hybrid-Mode ADCS Formal Verification',
-      date: 'Active',
+      date: 'Jan 2025 – Present',
       desc: 'Formal verification of spacecraft ADCS control logic using the Verse library. Proved angular velocity bounds across the full initial condition set via reachability analysis. System models B-dot detumble and quaternion PID modes with automatic mode-switching logic.',
       stats: ['Angular velocity bounds proved', '10-state dynamics', 'RK4 integration'],
       tags: ['Verse', 'Reachability', 'Hybrid Systems', 'RK4', 'Python'],
-      images: [
-        { label: 'Add an image — e.g. reachtube visualization' },
-        { label: 'Add an image — e.g. hybrid automaton diagram' },
-      ],
-      note: 'Reachability tube plots are the clearest visual for this work.',
     },
     'proj-cfd': {
       type: 'Project · CFD · Python',
       title: 'Vortex Panel Method — Computational Aerodynamics',
-      date: 'Complete',
+      date: 'Oct – Dec 2025',
       desc: 'Implemented vortex panel and discrete vortex element methods for lift prediction on the NACA 2412 airfoil across ±10° angle of attack. Full convergence analysis demonstrated 0.1% solution stability at 200+ panels and 11% lower Cl error versus a baseline discrete-vortex approach.',
+      bullets: [
+        'Implemented vortex panel and discrete vortex element methods in Python to compute lift for a NACA 2412 airfoil across −10° to 10° AoA; full-airfoil modeling reduced lift prediction error by 11% vs. camberline-only approach.',
+        'Validated solver accuracy through convergence analysis, achieving numerical stability within 0.1% at 200+ panels — confirming method suitability for preliminary aerodynamic design.',
+      ],
       stats: ['11% lower Cl error', '0.1% stability @ 200+ panels', '±10° AoA sweep'],
       tags: ['Python', 'CFD', 'NACA 2412', 'Panel Method', 'NumPy'],
-      images: [
-        { label: 'Add an image — e.g. Cp distribution plot' },
-        { label: 'Add an image — e.g. panel convergence curve' },
-        { label: 'Add an image — e.g. airfoil vortex field' },
+      github: 'https://github.com/vedanths11/AE311-NACA2412-Vortex-Methods',
+    },
+    'proj-lox': {
+      type: 'Project · Propulsion · MATLAB',
+      title: 'LOx-IPA Test Stand Simulink Model',
+      date: 'Sep – Nov 2024',
+      desc: 'Fluid dynamics model of a Liquid Oxygen–Isopropyl Alcohol rocket test stand built in MATLAB and Simulink. Validated against cold-flow experimental data to support hot-fire prediction and data verification.',
+      bullets: [
+        'Built a fluid dynamics model of a LOx-IPA test stand in MATLAB and Simulink, achieving within 7% accuracy of measured tank flow rates.',
+        'Validated model behavior against three cold-flow datasets to support hot-fire prediction and data verification.',
       ],
-      note: 'Cp distributions or streamline plots from matplotlib export cleanly here.',
+      stats: ['7% accuracy vs. measured flow rates', '3 cold-flow validation datasets'],
+      tags: ['MATLAB/Simulink', 'LOx-IPA', 'Fluid Dynamics', 'Model Validation'],
+    },
+    'proj-nbody': {
+      type: 'Project · Astrodynamics · Python',
+      title: 'Solar System N-Body Problem Simulation',
+      date: 'Complete',
+      desc: 'Numerical simulation of gravitational N-body dynamics for solar system bodies using Python. Models multi-body orbital interactions and gravitational coupling over extended time periods.',
+      tags: ['Python', 'N-Body', 'Astrodynamics', 'Numerical Integration'],
+      github: 'https://github.com/vedanths11/Solar-System---N-Body-Problem-Simulation',
     },
   };
 
-  // ─── Modal Renderer ───────────────────────────────────────────
   function openModal(id) {
     const data = modals[id];
     if (!data) return;
@@ -1229,9 +1295,7 @@
     if (data.bullets && data.bullets.length) {
       html += `<div class="modal-section-label">Key Contributions</div>
                <ul class="modal-bullets">`;
-      data.bullets.forEach(b => {
-        html += `<li>${b}</li>`;
-      });
+      data.bullets.forEach(b => { html += `<li>${b}</li>`; });
       html += `</ul>`;
     }
 
@@ -1239,18 +1303,18 @@
       html += `<div class="modal-divider"></div>
                <div class="modal-section-label">Highlights</div>
                <div class="modal-stats-row">`;
-      data.stats.forEach(s => {
-        html += `<span class="modal-stat">${s}</span>`;
-      });
+      data.stats.forEach(s => { html += `<span class="modal-stat">${s}</span>`; });
       html += `</div>`;
     }
 
     if (data.tags && data.tags.length) {
       html += `<div class="modal-tags">`;
-      data.tags.forEach(t => {
-        html += `<span class="tag">${t}</span>`;
-      });
+      data.tags.forEach(t => { html += `<span class="tag">${t}</span>`; });
       html += `</div>`;
+    }
+
+    if (data.github) {
+      html += `<a href="${data.github}" target="_blank" rel="noopener" class="modal-github-btn">↗ View on GitHub</a>`;
     }
 
     if (data.images && data.images.length) {
@@ -1258,11 +1322,22 @@
                <div class="modal-section-label">Images & Media</div>
                <div class="modal-images">`;
       data.images.forEach(img => {
-        html += `
-          <div class="modal-image-slot">
-            <span class="slot-icon">🖼</span>
-            <span class="slot-label">${img.label}</span>
-          </div>`;
+        if (img.src) {
+          html += `
+            <div class="modal-image-figure">
+              <img src="${img.src}" alt="${img.label}">
+              <span class="modal-image-caption">${img.label}</span>
+            </div>`;
+        } else {
+          html += `
+            <div class="modal-image-figure">
+              <div class="modal-image-slot">
+                <span class="slot-icon">🖼</span>
+                <span class="slot-label">${img.label}</span>
+              </div>
+              <span class="modal-image-caption">${img.label}</span>
+            </div>`;
+        }
       });
       html += `</div>`;
       if (data.note) {
